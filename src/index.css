@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark theme */
+:root {
+  --color-bg: #0d0f0e;
+  --color-surface: #171a18;
+  --color-primary: #40a33d;
+  --color-primary-2: #134612;
+  --color-text: #f3f1ec;
+  --color-muted: #9a9d97;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+}
+
+/* Light theme */
+[data-theme='light'] {
+  --color-bg: #f4f6f8;
+  --color-surface: #ffffff;
+  --color-primary: #40a33d;
+  --color-primary-2: #2d7d2c;
+  --color-text: #1f2933;
+  --color-muted: #667085;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.text-lighteres [data-theme='light'] {
+  color: white !important; 
+}
+.text-lighteres {
+  color: white !important; 
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: #0d0f0e;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.container-px {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-px {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+}
+.animate-marquee-reverse {
+  animation: marquee-reverse 22s linear infinite;
+}
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #40a33d, #40a33d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+input, select, textarea {
+  font-family: var(--font-body);
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
